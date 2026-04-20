@@ -23,7 +23,9 @@
     <header id="main-nav">
         <div class="container nav-container">
             <div class="logo">
-                <i data-lucide="scan-line" class="logo-icon"></i>
+                <div class="logo-img-wrapper">
+                    <img src="assets/pride_logo.jpg" alt="P.R.I.D.E. Logo" class="logo-img">
+                </div>
                 <span>P.R.I.D.E.</span>
             </div>
             <nav>
@@ -46,7 +48,7 @@
             <div class="hero-overlay"></div>
         </div>
         <div class="container hero-content">
-            <div class="hero-text-box glass-panel">
+            <div class="hero-text-box glass-panel scroll-animate animate-slide-up">
                 <span class="badge">Agri-Tech | SOCCSKSARGEN</span>
                 <h1>Pomelo Remote Inspection & Detection Engine</h1>
                 <p>AI-powered, drone-based crop stress detection designed specifically for pomelo orchards in the SOCCSKSARGEN region.</p>
@@ -66,12 +68,12 @@
                 <div class="divider"></div>
             </div>
             <div class="grid-2">
-                <div class="card glass-panel">
+                <div class="card glass-panel scroll-animate animate-slide-up" style="--anim-delay: 0.1s;">
                     <i data-lucide="alert-triangle" class="card-icon"></i>
                     <h3>The Challenge</h3>
                     <p>Pomelo farm managers in the SOCCSKSARGEN region face a critical lack of early warning systems. Traditional visual inspections fail to detect crop stress before significant yield loss occurs. This reactive approach leads to wasted resources, uncontrolled disease spread, and decreased profitability.</p>
                 </div>
-                <div class="card glass-panel">
+                <div class="card glass-panel scroll-animate animate-slide-up" style="--anim-delay: 0.2s;">
                     <i data-lucide="target" class="card-icon"></i>
                     <h3>Our Solution</h3>
                     <p>P.R.I.D.E. shifts your orchard from reactive to proactive management. By deploying autonomous drone swarms, we conduct frequent, high-resolution scans of your plantation. Our data pipeline identifies hidden stress factors weeks before human eyes can spot them, enabling targeted interventions.</p>
@@ -90,7 +92,7 @@
             
             <div class="tech-grid">
                 <div class="tech-content">
-                    <div class="tech-item">
+                    <div class="tech-item scroll-animate animate-slide-up" style="--anim-delay: 0.1s;">
                         <div class="tech-item-header">
                             <i data-lucide="cpu" class="tech-icon"></i>
                             <h3>ESP32-CAM Architecture</h3>
@@ -98,7 +100,7 @@
                         <p>We've developed a custom, lightweight payload centered around the ESP32-CAM module. This allows for massive scalability and extended drone flight times without sacrificing the resolution needed for high-fidelity crop analysis.</p>
                     </div>
                     
-                    <div class="tech-item">
+                    <div class="tech-item scroll-animate animate-slide-up" style="--anim-delay: 0.2s;">
                         <div class="tech-item-header">
                             <i data-lucide="eye" class="tech-icon"></i>
                             <h3>Pseudo-NIR Imaging</h3>
@@ -106,7 +108,7 @@
                         <p>Our modified camera arrays capture light beyond the visible spectrum. By generating pseudo-NIR (Near-Infrared) imagery, we analyze the chlorophyll density of each tree, uncovering hidden stress signatures caused by drought, pests, or disease.</p>
                     </div>
 
-                    <div class="tech-item">
+                    <div class="tech-item scroll-animate animate-slide-up" style="--anim-delay: 0.3s;">
                         <div class="tech-item-header">
                             <i data-lucide="network" class="tech-icon"></i>
                             <h3>Signal Processing & AI</h3>
@@ -115,7 +117,7 @@
                     </div>
                 </div>
                 
-                <div class="tech-visual glass-panel">
+                <div class="tech-visual glass-panel scroll-animate animate-fade-in" style="--anim-delay: 0.4s;">
                     <div class="heatmap-container">
                         <img src="assets/pseudo_nir_heatmap.png" alt="Pseudo-NIR heatmap showing crop health" />
                         <div class="scanner-line"></div>
@@ -143,15 +145,15 @@
                 <div class="divider"></div>
             </div>
             <div class="stats-container">
-                <div class="stat-box glass-panel">
+                <div class="stat-box glass-panel scroll-animate animate-slide-up" style="--anim-delay: 0.1s;">
                     <span class="stat-number tech-font">~20%</span>
                     <span class="stat-label">Yield Improvement</span>
                 </div>
-                <div class="stat-box glass-panel">
+                <div class="stat-box glass-panel scroll-animate animate-slide-up" style="--anim-delay: 0.2s;">
                     <span class="stat-number tech-font">40%</span>
                     <span class="stat-label">Reduction in Chemical Usage</span>
                 </div>
-                <div class="stat-box glass-panel">
+                <div class="stat-box glass-panel scroll-animate animate-slide-up" style="--anim-delay: 0.3s;">
                     <span class="stat-number tech-font">14 Days</span>
                     <span class="stat-label">Early Warning Advantage</span>
                 </div>
@@ -163,7 +165,7 @@
     <section id="contact" class="section contact-section">
         <div class="container">
             <div class="contact-grid">
-                <div class="contact-info">
+                <div class="contact-info scroll-animate animate-slide-right">
                     <h2>Ready to Optimize Your Orchard?</h2>
                     <p>Get in touch to schedule a demo flight and see how P.R.I.D.E. can transform your pomelo farm operations.</p>
                     <ul class="contact-details">
@@ -172,7 +174,7 @@
                         <li><i data-lucide="phone"></i> +639923963726</li>
                     </ul>
                 </div>
-                <form class="contact-form glass-panel">
+                <form class="contact-form glass-panel scroll-animate animate-slide-left">
                     <div class="form-group">
                         <label for="name">Name / Organization</label>
                         <input type="text" id="name" required>
@@ -184,9 +186,9 @@
                     <div class="form-group">
                         <label for="hectares">Farm Size (Hectares)</label>
                         <select id="hectares">
-                            <option value="1-10">1 - 10 Hectares</option>
-                            <option value="11-50">11 - 50 Hectares</option>
-                            <option value="50+">50+ Hectares</option>
+                            <option value="1-5">1 - 5 Hectares</option>
+                            <option value="6-10">6 - 10 Hectares</option>
+                            <option value="10+">10+ Hectares</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary submit-btn">Request Information</button>
@@ -199,7 +201,9 @@
     <footer>
         <div class="container footer-content">
             <div class="footer-logo">
-                <i data-lucide="scan-line"></i>
+                <div class="logo-img-wrapper small">
+                    <img src="assets/pride_logo.jpg" alt="P.R.I.D.E. Logo" class="footer-logo-img">
+                </div>
                 <span>P.R.I.D.E.</span>
             </div>
             <p>&copy; 2026 P.R.I.D.E. Agri-Tech Solutions. All rights reserved.</p>
