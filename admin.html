@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P.R.I.D.E. | Admin Dashboard</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .admin-container { padding-top: 120px; min-height: 80vh; }
+        .table-wrapper { overflow-x: auto; margin-top: 2rem; padding: 1rem; }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
+        th, td { padding: 1rem; border-bottom: 1px solid var(--glass-border); }
+        th { background: rgba(0, 240, 255, 0.1); color: var(--clr-cyan); font-weight: 600; }
+        tr:hover { background: rgba(255, 255, 255, 0.05); }
+    </style>
+</head>
+<body>
+    <header id="main-nav">
+        <div class="container nav-container">
+            <div class="logo">
+                <span>P.R.I.D.E. Admin</span>
+            </div>
+            <nav>
+                <a href="index.html">Back to Site</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section admin-container">
+        <div class="container">
+            <div class="section-header">
+                <h2>Demo Requests</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="glass-panel table-wrapper">
+                <table id="requests-table">
+                    <thead>
+                        <tr>
+                            <th>Date/Time</th>
+                            <th>Name / Organization</th>
+                            <th>Email Address</th>
+                            <th>Farm Size (Hectares)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td colspan="4" style="text-align: center;">Loading requests...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const tbody = document.querySelector('#requests-table tbody');
+            try {
+                const response = await fetch('/api/requests');
+                const data = await response.json();
+                
+                if (data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="4" style="text-align: center;">No demo requests found.</td></tr>';
+                    return;
+                }
+                
+                tbody.innerHTML = '';
+                // Sort by timestamp descending
+                data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+                
+                data.forEach(req => {
+                    const tr = document.createElement('tr');
+                    const date = new Date(req.timestamp).toLocaleString();
+                    tr.innerHTML = `
+                        <td>${date}</td>
+                        <td>${req.name || 'N/A'}</td>
+                        <td><a href="mailto:${req.email}" style="color: var(--clr-cyan);">${req.email || 'N/A'}</a></td>
+                        <td>${req.hectares || 'N/A'}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (error) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: red;">Error loading requests. Ensure server is running.</td></tr>';
+            }
+        });
+    </script>
+</body>
+</html>
